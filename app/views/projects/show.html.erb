@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><strong>
+  	Project: <%= @project.project_name %><br>
+  	Client: <%= @project.client %> <br>
+  	PM: <%= @project.manager %></strong></div>
+ 
+  <!-- Table -->
+  <table class="table">
+    <tr>
+    	<th>Task</th>
+    	<th>Start</th>
+    	<th>Finish</th>
+    	<th>Resource</th>
+    </tr>
+    <tr>
+    	<% @project.tasks.each do |task| %> 
+ 		<td><%= task.task_name %></td>
+ 		<td><%= task.start_date %></td>
+ 		<td><%= task.end_date %></td>
+ 		<td><%= task.assigned_resource %></td>
+ 	</tr>
+  	<% end %>
+  </table>
+</div>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><strong>Active Projects</strong></div>
+ 
+  <!-- Table -->
+  <table class="table">
+    <tr>
+      <th>Project name</th>
+      <th>Client</th>
+      <th>Manager</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.project_name %></td>
+        <td><%= project.client %></td>
+        <td><%= project.manager %></td>
+        <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+</table>
+</div>
+<br>
+
+<%= link_to 'New Project', new_project_path %>
